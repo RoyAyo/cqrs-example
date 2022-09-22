@@ -9,12 +9,6 @@ enum Commands {
   attendance = "take-attendance",
 }
 
-interface IRecord {
-  name?: string;
-  email: string;
-  command: string;
-}
-
 class studentEventHandler {
   private async updateDailyRecord(userId: string) {
     const today = getTodayFromDateTime();
