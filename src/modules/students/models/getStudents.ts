@@ -4,7 +4,6 @@ export interface IStudent {
   userId: string;
   name: string;
   email: string;
-  points: number;
 }
 
 interface IGetStudentsDocument extends Document {
@@ -21,7 +20,6 @@ const GetStudentsSchema = new Schema<IGetStudentsDocument>(
         userId: String,
         name: String,
         email: String,
-        points: Number,
       },
     ],
   },

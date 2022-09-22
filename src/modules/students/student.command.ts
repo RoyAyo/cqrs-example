@@ -39,7 +39,7 @@ class StudentCommandHandler {
       command: "add",
     };
     const parameters = convertObjectToParameters(studentObj);
-    await client.sendCommand(["XADD", "student", "*", ...parameters]);
+    await client.sendCommand(["XADD", "student_stream", "*", ...parameters]);
     //could have an event listener but to keep things simple.
     eventHandler.studentHandler(studentObj);
   }
@@ -52,7 +52,7 @@ class StudentCommandHandler {
       command: "remove",
     };
     const parameters = convertObjectToParameters(studentObj);
-    await client.sendCommand(["XADD", "student", "*", ...parameters]);
+    await client.sendCommand(["XADD", "student_stream", "*", ...parameters]);
     eventHandler.studentHandler(studentObj);
   }
 
@@ -67,7 +67,7 @@ class StudentCommandHandler {
       arrivalTime,
     };
     const parameters = convertObjectToParameters(attendanceObj);
-    await client.sendCommand(["XADD", "attendance", "*", ...parameters]);
+    await client.sendCommand(["XADD", "attendance_stream", "*", ...parameters]);
     eventHandler.attendanceHandler(attendanceObj);
   }
 }

@@ -1,21 +1,17 @@
 import express from "express";
 import eventHandler from "../app/eventHandler";
 import studentController from "./student.controller";
-import studentEventHandler from "./student.events";
 
 const router = express.Router();
-const studentEvent = new studentEventHandler();
 
 //GET
 router.get("/", studentController.getStudents);
 router.get("/student/:id", studentController.getStudent);
 
-//POST
-router.post("/student", studentController.addStudent);
-router.post("/student/:id/take-attendance", studentController.takeAttendance);
 
-//DELETE
+router.post("/student", studentController.addStudent);
 router.delete("/student/:id", studentController.removeStudent);
+router.post("/student/:id/take-attendance", studentController.takeAttendance);
 
 //ADMIN-ENDPOINTS-THAT-RECOMPUTE
 router.post("/student/:id/re-compute", (req, res) => {

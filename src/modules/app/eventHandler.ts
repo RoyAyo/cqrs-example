@@ -32,7 +32,7 @@ class EventHandler {
     const events: any = await client.sendCommand([
       "XREAD",
       "STREAMS",
-      "student",
+      "student_stream",
       "0-0",
     ]);
     if (!events) return [];
@@ -70,12 +70,11 @@ class EventHandler {
     const events: any = await client.sendCommand([
       "XREAD",
       "STREAMS",
-      "attendance",
+      "attendance_stream",
       "0-0",
     ]);
     if (events) {
-      const [streamName, records] = events[0];
-      if (streamName === "attendance") {
+      const [__, records] = events[0];
         for (const record of records) {
           let [_, userData] = record;
           userData = convertArrayParametersToObject(userData);
@@ -91,7 +90,6 @@ class EventHandler {
             });
             shouldUpdate = true;
           }
-        }
       }
     }
     return {
