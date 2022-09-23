@@ -10,5 +10,5 @@
 
 //VIEWS
 //PRINCIPAL
-// ALL STUDENTS IN SCHOOL
-// STUDENT => daysEarly, daysLate, points, Attendance record => arrivalTime each day
+- ALL STUDENTS IN SCHOOL
+- STUDENT => daysEarly, daysLate, points, Attendance record => arrivalTime each day

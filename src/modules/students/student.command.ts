@@ -11,7 +11,6 @@ class StudentCommandHandler {
 
   private async isIdRecorded(userId: string) {
     const key = getTodayFromDateTime();
-    console.log(key);
     let students = await client.get(key);
     if (!students) {
       await client.set(key, JSON.stringify([]));
@@ -21,7 +20,6 @@ class StudentCommandHandler {
     const isInArray = studentArray.find(
       (student: string) => student === userId
     );
-    console.log(isInArray);
     return isInArray ? true : false;
   }
 

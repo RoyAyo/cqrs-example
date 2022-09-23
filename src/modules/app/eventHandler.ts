@@ -10,7 +10,7 @@ enum Commands {
 const studentEvent = new studentEventHandler();
 
 class EventHandler {
-  bonusPoint = 100;
+  bonusPoint = 10;
   intervalTime = 10; //in minutes
   arrivalHour = 9; //a.m //in hours
 
@@ -80,7 +80,6 @@ class EventHandler {
           userData = convertArrayParametersToObject(userData);
           if (userData.userId === userId) {
             const bonus = this.calculateBonus(userData.arrivalTime);
-            console.log(bonus);
             points += bonus;
             daysLate += Number(bonus === -this.bonusPoint);
             daysEarly += Number(bonus === this.bonusPoint);
